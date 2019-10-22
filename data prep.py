@@ -21,18 +21,16 @@ habit.rename(columns = {'Species_JA_trimfinalspace':'species'}, inplace = True)
 ### Merge datasets together
 
 ## Merge phenology data into census
-dat = census.merge(habit, on = 'species', how = 'left')
+
+census_tot = census.merge(habit, on = 'species', how = 'left')
 
 # Create comparable tree ID
-dat['cross_ID'] = dat['plot_code'] + '_' + dat['tree_tag'].astype(str)
+census_tot['cross_ID'] = census_tot['plot_code'] + '_' + census_tot['tree_tag'].astype(str)
 growth['cross_ID'] = growth['plot_code'] + '_' + growth['tree_tag'].astype(str)
 
+# Reduce to one observation per tree, either census 4 or 5, to match dates of growth measurements
+census_tot = census_tot[(census_tot['census_no'] == 4) | (census_tot['census_no'] == 5)]
+census_tot = census_tot.drop_duplicates(subset = "cross_ID")
+census_tot = census_tot.reset_index()
 
 
-### Check for spelling mismatches
-
-#dat[dat['Phenology'].isna() == False].shape
-
-spec1_nomatch = dat[dat['Phenology'].isna()]['species']
-spec1_nomatch = spec1_nomatch.unique()
-spec2_nomatch = habit[habit['species'].isin(dat['species']) == False]['species']

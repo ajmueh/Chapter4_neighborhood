@@ -1,5 +1,5 @@
 ###=================================###
-#           Import settings           #
+#           Import settings
 ###=================================###
 
 import matplotlib.pyplot as plt
@@ -10,11 +10,11 @@ import pandas as pd
 import numpy as np
 import os
 
-## Set color gradient
+# Set color gradient
 col = LinearSegmentedColormap.from_list('name', ['#de5d54','#58f57f'])
 
 ###====================================================###
-#   Assess effect of growth on variable neighborhoods    #
+#   Assess effect of growth on variable neighborhoods
 ###====================================================###
 
 # Find neigbhorhoods of different sizes

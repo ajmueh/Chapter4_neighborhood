@@ -1,5 +1,5 @@
 ###===========================###
-#   Import Data and Settings    #
+#   Import Data and Settings
 ###===========================###
 
 import pandas as pd
@@ -29,7 +29,7 @@ habit.rename(columns = {'Species_JA_trimfinalspace':'species'}, inplace = True)
 habit_ext = pd.read_table("./data/ouedraogo_phenology.txt", sep = "\t")
 
 ###=================================###
-#   Merge and create new variables    #
+#   Merge and create new variables
 ###=================================###
 
 ### Merge phenology data into census

@@ -1,16 +1,16 @@
 
 ###=================================###
-#     Neighborhood calc function      #
+#     Neighborhood calc function
 ###=================================###
 
 def neighborhood (dat, radius):
 
-    ## Set up new variables in data
+    # Set up new variables in data
     dat['prop_evergreen'] = 0
     dat['conf'] = 0
     dat['neighbors_num'] = 0
 
-    ## Set up loop for each observation
+    # Set up loop for each observation
     for i in range(0,dat.shape[0]):
 
         # Grab ith row
@@ -30,7 +30,7 @@ def neighborhood (dat, radius):
         # Find proportion evergreen trees
         neigh_known = neigh[neigh['Phenology'].isna() == False]
 
-        ## Parse various data scenarios
+        # Parse various data scenarios
         # Check to see if the phenology of any neighbors are known
         if neigh_known.shape[0] > 0:
             # Determine the proportion of evergreens

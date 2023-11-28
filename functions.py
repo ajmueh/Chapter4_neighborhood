@@ -3,7 +3,7 @@
 #     Neighborhood calc function
 ###=================================###
 
-def neighborhood (dat, radius):
+#def neighborhood (dat, radius):
 
     # Set up new variables in data
     dat['prop_evergreen'] = 0
